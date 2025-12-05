@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    config:
+      fail-fast: true   # Optional: fail startup if config server is unavailable
+  application:
+    name: glowkart-microservices
+
+logging:
+  level:
+    root: INFO
+
+eureka:
+  client:
+    healthcheck:
+      enabled: true
