@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: onboarding-service
+
+  data:
+    mongodb:
+      uri: ${SPRING_DATA_MONGODB_URI:mongodb://localhost:27017/onboardingdb}
+
+  mail:
+    host: ${SPRING_MAIL_HOST:smtp.gmail.com}
+    port: ${SPRING_MAIL_PORT:465}
+    username: ${SPRING_MAIL_USERNAME:cgt.moksha@gmail.com}
+    password: ${SPRING_MAIL_PASSWORD:CTPL@6767}
+    protocol: smtp
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+          ssl:
+            enable: true
+        debug: true
+
+server:
+  port: 8081
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_SERVER_URL:http://localhost:8761/eureka/}
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 10
+    lease-expiration-duration-in-seconds: 30
+
+app:
+  frontend-base-url: ${APP_FRONTEND_BASE_URL:https://glowkartmain.ashokfruit.shop}
+  token-expiry-minutes: ${APP_TOKEN_EXPIRY_MINUTES:60}
+  return-token: ${APP_RETURN_TOKEN:true}
+
+notification:
+  default-from-email: ${NOTIFICATION_FROM_EMAIL:no-reply@glowkart.com}
